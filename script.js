@@ -35,6 +35,7 @@
         /* ── DATA ── */
         const LOGO_SRC = "/images/logo.jpg";
         const FALLBACK_IMG = "/images/logo.jpg";
+        const isImagePath = (path) => typeof path === 'string' && (path.startsWith('http') || path.startsWith('/images/'));
 
         const PRICING_CONFIG = {
             tiers: {
@@ -1332,7 +1333,7 @@
                                 background: `linear-gradient(135deg, ${theme.accent}, ${theme.accent2})`,
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 64,
                             }}>
-                                {theme.emoji?.startsWith('http') ? <img loading="lazy" src={theme.emoji} alt="icon" style={{ width: '60%', height: '60%', objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} /> : theme.emoji}
+                                {isImagePath(theme.emoji) ? <img loading="lazy" src={theme.emoji} alt="icon" style={{ width: '60%', height: '60%', objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} /> : theme.emoji}
                             </div>
                         )}
 
@@ -2085,12 +2086,12 @@
         /* — HOMEPAGE — */
         /* — SCROLL THEMES DATA — */
         const SCROLL_THEMES = [
-            { id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png', imgUrl: '/images/quiet_sunset_anime.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: '/images/icon_designs.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: '/images/icon_designs.png' }] },
-            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg', imgUrl: '/images/theme_marvel_new.jpg', tag: 'Superhero Edition', desc: 'Channel your inner hero. Bold designs for those who believe in something greater.', accent: '#FFB3B3', accent2: '#B3D9FF', bg: 'linear-gradient(135deg,#FFF5F5,#F0F8FF)', designs: [{ name: 'Iron Shield', color: '#FFD93D', icon: '/images/icon_designs.png' }, { name: 'Dark Knight', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Scarlet Web', color: '#FF6B6B', icon: '/images/icon_designs.png' }] },
-            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png', imgUrl: '/images/theme_cars_new.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: '/images/icon_designs.png' }, { name: 'Golden Speed', color: '#FFE082', icon: '/images/icon_designs.png' }] },
-            { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', imgUrl: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
-            { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', imgUrl: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: '/images/icon_designs.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: '/images/icon_designs.png' }] },
-            { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', imgUrl: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: '/images/icon_designs.png' }, { name: 'Stardust', color: '#FFD700', icon: '/images/icon_designs.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: '/images/icon_designs.png' }] },
+            { id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png', img: '/images/quiet_sunset_anime.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: '/images/icon_designs.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: '/images/icon_designs.png' }] },
+            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg', img: '/images/theme_marvel_new.jpg', tag: 'Superhero Edition', desc: 'Channel your inner hero. Bold designs for those who believe in something greater.', accent: '#FFB3B3', accent2: '#B3D9FF', bg: 'linear-gradient(135deg,#FFF5F5,#F0F8FF)', designs: [{ name: 'Iron Shield', color: '#FFD93D', icon: '/images/icon_designs.png' }, { name: 'Dark Knight', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Scarlet Web', color: '#FF6B6B', icon: '/images/icon_designs.png' }] },
+            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png', img: '/images/theme_cars_new.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: '/images/icon_designs.png' }, { name: 'Golden Speed', color: '#FFE082', icon: '/images/icon_designs.png' }] },
+            { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', img: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
+            { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', img: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: '/images/icon_designs.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: '/images/icon_designs.png' }] },
+            { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', img: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: '/images/icon_designs.png' }, { name: 'Stardust', color: '#FFD700', icon: '/images/icon_designs.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: '/images/icon_designs.png' }] },
         ];
 
         function DesignMiniCard({ d, index, onClick }) {
@@ -2151,7 +2152,7 @@
                         display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28,
                         background: 'linear-gradient(135deg,rgba(248,200,220,0.32),rgba(230,230,250,0.32))',
                         border: '1.5px solid rgba(248,200,220,0.4)', overflow: 'hidden'
-                    }}>{s.icon?.startsWith('http') ? <img loading="lazy" src={s.icon} style={{ width: '60%', height: '60%', objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} /> : s.icon}</div>
+                    }}>{isImagePath(s.icon) ? <img loading="lazy" src={s.icon} style={{ width: '60%', height: '60%', objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} /> : s.icon}</div>
                     <h3 style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 15, fontWeight: 600, marginBottom: 8 }}>{s.title}</h3>
                     <p style={{ fontSize: 13, color: 'var(--text-mid)', lineHeight: 1.7, fontWeight: 300 }}>{s.desc}</p>
                 </div>
@@ -2291,7 +2292,7 @@
                                     position: 'relative', overflow: 'hidden',
                                 }}>
                                     <img
-                                        src={theme.imgUrl}
+                                        src={theme.img}
                                         alt={theme.name}
                                         loading="lazy"
                                         style={{
@@ -2336,7 +2337,7 @@
                                     color: 'var(--pink-deep)', marginBottom: 22, backdropFilter: 'blur(10px)',
                                     boxShadow: 'var(--shadow-sm)'
                                 }}>
-                                    <img loading="lazy" src={theme.emoji} alt="icon" style={{ width: 14, height: 14, objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />{theme.tag}
+                                    {isImagePath(theme.emoji) ? <img loading="lazy" src={theme.emoji} alt="icon" style={{ width: 14, height: 14, objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} /> : theme.emoji}{theme.tag}
                                 </div>
                                 <h2 style={{
                                     fontFamily: "'Great Vibes',cursive", fontSize: 'clamp(52px,5.5vw,86px)',
