@@ -34,7 +34,7 @@
 
         /* ── DATA ── */
         const LOGO_SRC = "/images/logo.jpg";
-        const FALLBACK_IMG = "https://placehold.co/300x300/f8c8dc/d4688e?text=Blossom";
+        const FALLBACK_IMG = "/images/logo.jpg";
 
         const PRICING_CONFIG = {
             tiers: {
@@ -709,7 +709,7 @@
                         {effect === 'gold-plating' && (
                             <div style={{
                                 position: 'absolute', inset: 0, zIndex: 5,
-                                background: 'url("https://www.transparenttextures.com/patterns/gold-dust.png"), linear-gradient(135deg, #d4af37, #f9e29c, #d4af37)',
+                                background: 'url("/images/pattern_gold_dust.png"), linear-gradient(135deg, #d4af37, #f9e29c, #d4af37)',
                                 mixBlendMode: isMobile ? 'normal' : 'color-burn',
                                 opacity: isMobile ? 0.4 : 0.6, pointerEvents: 'none'
                             }} />
@@ -2030,7 +2030,7 @@
                         )}
 
                         <button className="nav-cart-btn" onClick={() => { onCartOpen(); closeMenu(); }}>
-                            <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="cart" style={{ width: 18, height: 18, objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
+                            <img loading="lazy" src="/images/icon_designs.png" alt="cart" style={{ width: 18, height: 18, objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
                             Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
                         </button>
 
@@ -2085,12 +2085,12 @@
         /* — HOMEPAGE — */
         /* — SCROLL THEMES DATA — */
         const SCROLL_THEMES = [
-            { id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png', imgUrl: '/images/quiet_sunset_anime.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: 'https://cdn-icons-png.flaticon.com/512/10473/10473665.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: 'https://cdn-icons-png.flaticon.com/512/2731/2731818.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: 'https://cdn-icons-png.flaticon.com/512/2991/2991406.png' }] },
-            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg', imgUrl: '/images/theme_marvel_new.jpg', tag: 'Superhero Edition', desc: 'Channel your inner hero. Bold designs for those who believe in something greater.', accent: '#FFB3B3', accent2: '#B3D9FF', bg: 'linear-gradient(135deg,#FFF5F5,#F0F8FF)', designs: [{ name: 'Iron Shield', color: '#FFD93D', icon: 'https://cdn-icons-png.flaticon.com/512/751/751432.png' }, { name: 'Dark Knight', color: '#2C2C4A', icon: 'https://cdn-icons-png.flaticon.com/512/2219/2219293.png' }, { name: 'Scarlet Web', color: '#FF6B6B', icon: 'https://cdn-icons-png.flaticon.com/512/10309/10309289.png' }] },
-            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png', imgUrl: '/images/theme_cars_new.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: 'https://cdn-icons-png.flaticon.com/512/2991/2991406.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png' }, { name: 'Golden Speed', color: '#FFE082', icon: 'https://cdn-icons-png.flaticon.com/512/3137/3137831.png' }] },
-            { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', imgUrl: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: 'https://cdn-icons-png.flaticon.com/512/10473/10473665.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: 'https://cdn-icons-png.flaticon.com/512/2926/2926344.png' }, { name: 'Golden Om', color: '#F0D98A', icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png' }] },
-            { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', imgUrl: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: 'https://cdn-icons-png.flaticon.com/512/10473/10473665.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: 'https://cdn-icons-png.flaticon.com/512/628/628283.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: 'https://cdn-icons-png.flaticon.com/512/10473/10473665.png' }] },
-            { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', imgUrl: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: 'https://cdn-icons-png.flaticon.com/512/2524/2524275.png' }, { name: 'Stardust', color: '#FFD700', icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: 'https://cdn-icons-png.flaticon.com/512/10473/10473665.png' }] },
+            { id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png', imgUrl: '/images/quiet_sunset_anime.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: '/images/icon_designs.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: '/images/icon_designs.png' }] },
+            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg', imgUrl: '/images/theme_marvel_new.jpg', tag: 'Superhero Edition', desc: 'Channel your inner hero. Bold designs for those who believe in something greater.', accent: '#FFB3B3', accent2: '#B3D9FF', bg: 'linear-gradient(135deg,#FFF5F5,#F0F8FF)', designs: [{ name: 'Iron Shield', color: '#FFD93D', icon: '/images/icon_designs.png' }, { name: 'Dark Knight', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Scarlet Web', color: '#FF6B6B', icon: '/images/icon_designs.png' }] },
+            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png', imgUrl: '/images/theme_cars_new.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: '/images/icon_designs.png' }, { name: 'Golden Speed', color: '#FFE082', icon: '/images/icon_designs.png' }] },
+            { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', imgUrl: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
+            { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', imgUrl: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: '/images/icon_designs.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: '/images/icon_designs.png' }] },
+            { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', imgUrl: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: '/images/icon_designs.png' }, { name: 'Stardust', color: '#FFD700', icon: '/images/icon_designs.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: '/images/icon_designs.png' }] },
         ];
 
         function DesignMiniCard({ d, index, onClick }) {
@@ -2479,7 +2479,7 @@
                                     opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(16px)',
                                     transition: 'all 0.6s 0.05s cubic-bezier(.22,.68,0,1.2)'
                                 }}>
-                                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/10309/10309289.png" alt="✦" style={{ width: 13, height: 13 }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
+                                    <img loading="lazy" src="/images/icon_easy.png" alt="✦" style={{ width: 13, height: 13 }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
                                     New Collection 2025
                                 </div>
 
@@ -2628,9 +2628,9 @@
                             </Reveal>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 32 }}>
                                 {[
-                                    { step: '01', icon: 'https://cdn-icons-png.flaticon.com/512/3067/3067451.png', title: 'Pick a Product', desc: 'Choose your basic, standard, or premium canvas.' },
-                                    { step: '02', icon: 'https://cdn-icons-png.flaticon.com/512/2970/2970785.png', title: 'Custom Art by You', desc: 'Add text, colors, and memories to make it yours.' },
-                                    { step: '03', icon: 'https://cdn-icons-png.flaticon.com/512/726/726455.png', title: 'Delivered to You', desc: 'Premium quality printed and shipped in 3–5 days.' },
+                                    { step: '01', icon: '/images/icon_pro.png', title: 'Pick a Product', desc: 'Choose your basic, standard, or premium canvas.' },
+                                    { step: '02', icon: '/images/icon_designs.png', title: 'Custom Art by You', desc: 'Add text, colors, and memories to make it yours.' },
+                                    { step: '03', icon: '/images/icon_delivery.png', title: 'Delivered to You', desc: 'Premium quality printed and shipped in 3-5 days.' },
                                 ].map((s, i) => <StepCard key={i} s={s} i={i} />)}
                             </div>
                         </div>
@@ -2678,7 +2678,7 @@
                                         position: 'absolute', top: -30, right: -40, width: 40, height: 40, 
                                         opacity: 0.15, transform: 'rotate(15deg)', pointerEvents: 'none' 
                                     }}>
-                                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/10310/10310289.png" alt="petal" style={{ width: '100%' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
+                                        <img loading="lazy" src="/images/logo.jpg" alt="petal" style={{ width: '100%' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
                                     </div>
 
                                     <p style={{ 
