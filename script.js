@@ -41,7 +41,9 @@
             tiers: {
                 phone: { elite: 299, standard: 249, value: 199 },
                 laptop: { elite: 449, standard: 349, value: 299 },
-                earbuds: { elite: 199, standard: 159, value: 129 }
+                earbuds: { elite: 199, standard: 159, value: 129 },
+                mug: { elite: 149, standard: 129, value: 99 },
+                tote: { elite: 249, standard: 199, value: 149 }
             },
             costs: {
                 product: 80,
@@ -177,7 +179,9 @@
         const PRODUCTS = [
             { id: 'laptop', name: 'LAPTOP CASE', icon: 'laptop', price: 299 },
             { id: 'phone', name: 'PHONE COVER', icon: 'phone', price: 199 },
-            { id: 'earbuds', name: 'EARBUBS CASE', icon: 'earbuds', price: 129 }
+            { id: 'earbuds', name: 'EARBUDS CASE', icon: 'earbuds', price: 129 },
+            { id: 'mug', name: 'CERAMIC MUG', icon: 'mug', price: 99 },
+            { id: 'tote', name: 'TOTE BAG', icon: 'tote', price: 149 }
         ];
 
         const DEVICE_MODELS = {
@@ -211,15 +215,24 @@
                 { id: 'galaxy-buds-3-pro', name: 'Galaxy Buds 3 Pro', brand: 'Samsung' },
                 { id: 'nothing-ear-3', name: 'Nothing Ear (3)', brand: 'Nothing' },
                 { id: 'pixel-buds-pro-2', name: 'Pixel Buds Pro 2', brand: 'Google' }
+            ],
+            mug: [
+                { id: 'classic-mug', name: 'Classic Ceramic Mug', brand: 'Generic' },
+                { id: 'travel-mug', name: 'Travel Steel Mug', brand: 'Generic' }
+            ],
+            tote: [
+                { id: 'canvas-tote', name: 'Premium Canvas Tote', brand: 'Generic' },
+                { id: 'eco-tote', name: 'Eco-Friendly Cotton Bag', brand: 'Generic' }
             ]
         };
         const THEMES = [
-            { id: 'anime', name: 'Anime', icon: '/images/quiet_sunset_anime.png', colors: ['#FF6B6B', '#4ECDC4', '#FFE66D'], tag: 'Fan Favourites', mood: 'Bold & Expressive' },
-            { id: 'marvel', name: 'Marvel', icon: '/images/theme_marvel_new.jpg', colors: ['#E63946', '#F1FAEE', '#A8DADC'], tag: 'Superhero Edition', mood: 'Bold & Powerful' },
-            { id: 'cars', name: 'Cars', icon: '/images/theme_cars_new.png', colors: ['#2B2D42', '#8D99AE', '#EDF2F4'], tag: 'Speed & Style', mood: 'Sleek & Dynamic' },
+            { id: 'anime', name: 'Anime', icon: '/images/quiet_sunset_anime.png?v=1', colors: ['#FF6B6B', '#4ECDC4', '#FFE66D'], tag: 'Fan Favourites', mood: 'Bold & Expressive' },
+            { id: 'marvel', name: 'Marvel', icon: '/images/theme_marvel_new.jpg?v=1', colors: ['#E63946', '#F1FAEE', '#A8DADC'], tag: 'Superhero Edition', mood: 'Bold & Powerful' },
+            { id: 'cars', name: 'Cars', icon: '/images/theme_cars_new.png?v=1', colors: ['#2B2D42', '#8D99AE', '#EDF2F4'], tag: 'Speed & Style', mood: 'Sleek & Dynamic' },
             { id: 'mandala', name: 'Mandala', icon: '/images/theme_mandala_new.webp', colors: ['#606C38', '#283618', '#FEFAE0'], tag: 'Sacred Geometry', mood: 'Calm & Intricate' },
             { id: 'floral', name: 'Floral', icon: '/images/theme_floral_new.jpg', colors: ['#FFC8DD', '#FFAFCC', '#BDE0FE'], tag: 'Nature in Bloom', mood: 'Soft & Romantic' },
-            { id: 'disney', name: 'Disney', icon: '/images/theme_disney_new.jpg', colors: ['#B7094C', '#A01A58', '#892B64'], tag: 'Magic Collection', mood: 'Enchanting & Pure' }
+            { id: 'disney', name: 'Disney', icon: '/images/theme_disney_new.jpg', colors: ['#B7094C', '#A01A58', '#892B64'], tag: 'Magic Collection', mood: 'Enchanting & Pure' },
+            { id: 'vintage', name: 'Vintage', icon: '/images/theme_vintage.png', colors: ['#D4A373', '#FAEDCD', '#CCD5AE'], tag: 'Retro Classic', mood: 'Nostalgic & Timeless' }
         ];
         const BASE_STYLES = [
             { id: 'matte', name: 'Matte Finish', icon: '/images/icon_pro.png' },
@@ -652,9 +665,9 @@
             // Detect mobile to reduce GPU-intensive effects
             const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
-            const w = product === 'phone' ? size * 0.75 : product === 'earbuds' ? size * 0.95 : size * 1.4;
-            const h = product === 'phone' ? size * 1.5 : product === 'earbuds' ? size * 1.1 : size * 0.95;
-            const r = product === 'phone' ? (size * 0.1) : product === 'earbuds' ? (size * 0.22) : (size * 0.06);
+            const w = product === 'phone' ? size * 0.75 : product === 'earbuds' ? size * 0.95 : product === 'mug' ? size * 1.1 : product === 'tote' ? size * 1.3 : size * 1.4;
+            const h = product === 'phone' ? size * 1.5 : product === 'earbuds' ? size * 1.1 : product === 'mug' ? size * 1.2 : product === 'tote' ? size * 1.4 : size * 0.95;
+            const r = product === 'phone' ? (size * 0.1) : product === 'earbuds' ? (size * 0.22) : product === 'mug' ? (size * 0.15) : product === 'tote' ? (size * 0.05) : (size * 0.06);
             const pattern = design.pattern || 'none';
             const effect = design.effect || 'none';
             const safeBg = design.bgColor || '#F8C8DC';
@@ -975,6 +988,18 @@
                                 <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: size * 0.2, height: size * 0.2, borderRadius: '50%', border: '4px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.05)' }} />
                             </div>
                         )}
+                        
+                        {!isEasyMode && product === 'mug' && (
+                            <div style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }}>
+                                <img src="/images/product_mug.png" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.85 }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
+                            </div>
+                        )}
+                        
+                        {!isEasyMode && product === 'tote' && (
+                            <div style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }}>
+                                <img src="/images/product_tote.png" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.8 }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
+                            </div>
+                        )}
                     </div>
                 </div>
             );
@@ -983,10 +1008,10 @@
         /* ——— THEMES GALLERY PAGE ——— */
         const THEME_CATALOG = [
             {
-                id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png',
+                id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png?v=1',
                 tag: 'Fan Favourites', mood: 'Bold & Expressive',
                 accent: '#C084FC', accent2: '#F9A8D4',
-                img: '/images/quiet_sunset_anime.png',
+                img: '/images/quiet_sunset_anime.png?v=1',
                 config: {
                     colors: ['#130a21', '#ff007f', '#00e5ff', '#9d00ff', '#f3f000'],
                     fonts: ['Rajdhani', 'Orbitron'],
@@ -1015,10 +1040,10 @@
                 }
             },
             {
-                id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg',
+                id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg?v=1',
                 tag: 'Superhero Edition', mood: 'Bold & Powerful',
                 accent: '#E63946', accent2: '#F1FAEE',
-                img: '/images/theme_marvel_new.jpg',
+                img: '/images/theme_marvel_new.jpg?v=1',
                 config: {
                     colors: ['#4a0000', '#ed1d24', '#ffd700', '#000000', '#ffffff'],
                     fonts: ['Anton', 'Bangers'],
@@ -1047,10 +1072,10 @@
                 }
             },
             {
-                id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png',
+                id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png?v=1',
                 tag: 'Speed & Style', mood: 'Sleek & Dynamic',
                 accent: '#FACC15', accent2: '#3B82F6',
-                img: '/images/theme_cars_new.png',
+                img: '/images/theme_cars_new.png?v=1',
                 config: {
                     colors: ['#e63946', '#457b9d', '#ff9f1c', '#e0e6ed', '#111'],
                     fonts: ['Racing Sans One'],
@@ -1174,6 +1199,40 @@
                     ]
                 }
             },
+            {
+                id: 'vintage', name: 'Vintage', emoji: '/images/theme_vintage.png',
+                tag: 'Retro Classic', mood: 'Nostalgic & Timeless',
+                accent: '#D4A373', accent2: '#FAEDCD',
+                img: '/images/theme_vintage.png',
+                config: {
+                    colors: ['#D4A373', '#FAEDCD', '#CCD5AE', '#E9EDC9', '#FEFAE0'],
+                    fonts: ['Cinzel', 'Special Elite', 'Dancing Script'],
+                    patterns: ['none', 'noise', 'wood'],
+                    effects: ['none', 'satin-gloss', 'frost-glass']
+                },
+                productDesigns: {
+                    phone: [
+                        { id: 'v_p1', name: 'Retro Soul', sub: '70s Geometric', img: '/images/vintage_phone.png' },
+                        { id: 'v_p2', name: 'Classic Radio', sub: 'Analog Vibes', img: '/images/vintage_phone.png' },
+                    ],
+                    earbuds: [
+                        { id: 'v_e1', name: 'Vinyl Records', sub: 'Music History', img: '/images/vintage_earbuds.png' },
+                        { id: 'v_e2', name: 'Retro Dial', sub: 'Classic Tech', img: '/images/vintage_earbuds.png' },
+                    ],
+                    laptop: [
+                        { id: 'v_l1', name: 'Antique Map', sub: 'World Explorer', img: '/images/vintage_laptop.png' },
+                        { id: 'v_l2', name: 'Old Library', sub: 'Literary Classic', img: '/images/vintage_laptop.png' },
+                    ],
+                    mug: [
+                        { id: 'v_m1', name: 'Botanical Fern', sub: 'Nature Study', img: '/images/vintage_mug.png' },
+                        { id: 'v_m2', name: 'French Cafe', sub: 'Morning Ritual', img: '/images/vintage_mug.png' },
+                    ],
+                    tote: [
+                        { id: 'v_t1', name: 'Parisian Market', sub: 'Vintage Style', img: '/images/vintage_tote.png' },
+                        { id: 'v_t2', name: 'Linen Texture', sub: 'Natural Carry', img: '/images/vintage_tote.png' },
+                    ]
+                }
+            },
         ];
 
         /* ——— IMAGE DESIGN CARD ——— */
@@ -1289,6 +1348,13 @@
             const [hov, setHov] = useState(false);
             const [imgErr, setImgErr] = useState(false);
 
+            // Calculate total designs across all products if productDesigns exists
+            const designCount = theme.designs 
+                ? theme.designs.length 
+                : (theme.productDesigns 
+                    ? Object.values(theme.productDesigns).reduce((acc, curr) => acc + curr.length, 0)
+                    : 0);
+
             return (
                 <div
                     onMouseEnter={() => setHov(true)}
@@ -1399,7 +1465,7 @@
                                 letterSpacing: '0.08em', textTransform: 'uppercase',
                                 color: isActive ? theme.accent : 'var(--text-light)',
                                 transition: 'color 0.3s',
-                            }}>{theme.designs.length} designs</div>
+                            }}>{designCount} designs</div>
                         </div>
                         <div style={{
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -1415,6 +1481,7 @@
                 </div>
             );
         }
+
 
         /* ——— REVEAL-WRAPPED CARDS ——— */
         function RevealThemeCard(props) {
@@ -1435,6 +1502,7 @@
         /* Full Themes Page */
         function ThemesPage({ onSelectTheme, onStart }) {
             const [activeTheme, setActiveTheme] = useState(null);
+            const [selectedProduct, setSelectedProduct] = useState('phone');
             const designsRef = useRef(null);
 
             const handleThemeClick = (theme) => {
@@ -1446,8 +1514,13 @@
 
             const handleDesignSelect = (design) => {
                 const theme = activeTheme || THEME_CATALOG[0];
-                onSelectTheme({ ...theme, selectedDesign: design });
+                onSelectTheme({ ...theme, selectedDesign: design, selectedProduct });
             };
+
+            // Get relevant designs for current selection
+            const currentDesigns = activeTheme 
+                ? (activeTheme.productDesigns ? activeTheme.productDesigns[selectedProduct] : (activeTheme.designs || []))
+                : [];
 
             return (
                 <div style={{ minHeight: '100vh', paddingBottom: 80 }}>
@@ -1465,7 +1538,6 @@
                             background: 'radial-gradient(ellipse 55% 80% at 15% 50%,rgba(248,200,220,0.28),transparent 70%),radial-gradient(ellipse 50% 70% at 85% 40%,rgba(230,230,250,0.28),transparent 70%)'
                         }} />
                         <div style={{ position: 'relative', zIndex: 1 }}>
-                            {/* Clean label — no flower icon */}
                             <div style={{
                                 display: 'inline-flex', alignItems: 'center',
                                 background: 'rgba(255,255,255,0.78)',
@@ -1533,9 +1605,9 @@
                             <Reveal>
                                 <div style={{
                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                                    marginBottom: 32, flexWrap: 'wrap', gap: 16,
+                                    marginBottom: 32, flexWrap: 'wrap', gap: 24,
                                 }}>
-                                    <div>
+                                    <div style={{ flex: '1 1 300px' }}>
                                         <div style={{
                                             display: 'inline-flex', alignItems: 'center', gap: 8,
                                             background: `${activeTheme.accent}22`,
@@ -1557,9 +1629,34 @@
                                             fontFamily: 'Poppins,sans-serif', fontSize: 13,
                                             color: 'var(--text-mid)', fontWeight: 300,
                                         }}>
-                                            {activeTheme.designs.length} exclusive designs — click any to customize
+                                            Explore exclusive designs for your {selectedProduct}
                                         </p>
                                     </div>
+
+                                    {/* Product Switcher */}
+                                    <div style={{ 
+                                        display: 'flex', background: 'rgba(0,0,0,0.04)', padding: 4, borderRadius: 16,
+                                        border: '1px solid rgba(0,0,0,0.05)'
+                                    }}>
+                                        {['phone', 'laptop', 'earbuds'].map(p => (
+                                            <button 
+                                                key={p}
+                                                onClick={() => setSelectedProduct(p)}
+                                                style={{
+                                                    padding: '10px 20px', borderRadius: 12, border: 'none',
+                                                    background: selectedProduct === p ? 'var(--white)' : 'transparent',
+                                                    color: selectedProduct === p ? 'var(--pink-deep)' : 'var(--text-mid)',
+                                                    fontSize: 11, fontWeight: 700, textTransform: 'uppercase',
+                                                    letterSpacing: '0.08em', cursor: 'pointer',
+                                                    boxShadow: selectedProduct === p ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
+                                                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                                                }}
+                                            >
+                                                {p}
+                                            </button>
+                                        ))}
+                                    </div>
+
                                     <button
                                         onClick={() => setActiveTheme(null)}
                                         style={{
@@ -1583,7 +1680,7 @@
                                 gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
                                 gap: 22,
                             }}>
-                                {activeTheme.designs.map((design, i) => (
+                                {currentDesigns.map((design, i) => (
                                     <RevealDesignCard
                                         key={design.id}
                                         design={design}
@@ -2031,7 +2128,7 @@
                         )}
 
                         <button className="nav-cart-btn" onClick={() => { onCartOpen(); closeMenu(); }}>
-                            <img loading="lazy" src="/images/icon_designs.png" alt="cart" style={{ width: 18, height: 18, objectFit: 'contain' }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
+                            <span style={{ fontSize: 18, lineHeight: 1, filter: 'drop-shadow(0 2px 4px rgba(212,104,142,0.3))' }}>🛒</span>
                             Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
                         </button>
 
@@ -2086,12 +2183,13 @@
         /* — HOMEPAGE — */
         /* — SCROLL THEMES DATA — */
         const SCROLL_THEMES = [
-            { id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png', img: '/images/quiet_sunset_anime.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: '/images/icon_designs.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: '/images/icon_designs.png' }] },
-            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg', img: '/images/theme_marvel_new.jpg', tag: 'Superhero Edition', desc: 'Channel your inner hero. Bold designs for those who believe in something greater.', accent: '#FFB3B3', accent2: '#B3D9FF', bg: 'linear-gradient(135deg,#FFF5F5,#F0F8FF)', designs: [{ name: 'Iron Shield', color: '#FFD93D', icon: '/images/icon_designs.png' }, { name: 'Dark Knight', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Scarlet Web', color: '#FF6B6B', icon: '/images/icon_designs.png' }] },
-            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png', img: '/images/theme_cars_new.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: '/images/icon_designs.png' }, { name: 'Golden Speed', color: '#FFE082', icon: '/images/icon_designs.png' }] },
+            { id: 'anime', name: 'Anime', emoji: '/images/quiet_sunset_anime.png?v=1', img: '/images/quiet_sunset_anime.png?v=1', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: '/images/icon_designs.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: '/images/icon_designs.png' }] },
+            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg?v=1', img: '/images/theme_marvel_new.jpg?v=1', tag: 'Superhero Edition', desc: 'Channel your inner hero. Bold designs for those who believe in something greater.', accent: '#FFB3B3', accent2: '#B3D9FF', bg: 'linear-gradient(135deg,#FFF5F5,#F0F8FF)', designs: [{ name: 'Iron Shield', color: '#FFD93D', icon: '/images/icon_designs.png' }, { name: 'Dark Knight', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Scarlet Web', color: '#FF6B6B', icon: '/images/icon_designs.png' }] },
+            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars_new.png?v=1', img: '/images/theme_cars_new.png?v=1', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: '/images/icon_designs.png' }, { name: 'Golden Speed', color: '#FFE082', icon: '/images/icon_designs.png' }] },
             { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', img: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
             { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', img: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: '/images/icon_designs.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: '/images/icon_designs.png' }] },
             { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', img: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: '/images/icon_designs.png' }, { name: 'Stardust', color: '#FFD700', icon: '/images/icon_designs.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: '/images/icon_designs.png' }] },
+            { id: 'vintage', name: 'Vintage', emoji: '/images/theme_vintage.png', img: '/images/theme_vintage.png', tag: 'Retro Classic', desc: 'Nostalgic vibes for the modern world. Classic aesthetics, timeless patterns, forever in style.', accent: '#D4A373', accent2: '#FAEDCD', bg: 'linear-gradient(135deg,#FDF5E6,#FFF8DC)', designs: [{ name: 'Retro Soul', color: '#D4A373', icon: '/images/icon_designs.png' }, { name: 'Vinyl Beat', color: '#8B4513', icon: '/images/icon_designs.png' }, { name: 'Old Library', color: '#6B4226', icon: '/images/icon_designs.png' }] },
         ];
 
         function DesignMiniCard({ d, index, onClick }) {
@@ -2140,7 +2238,7 @@
             return (
                 <div ref={ref} style={{
                     textAlign: 'center',
-                    opacity: 1, transform: vis ? 'translateY(0)' : 'translateY(28px)',
+                    opacity: 1, transform: vis ? (i === 1 ? 'translateY(-24px)' : 'translateY(0)') : 'translateY(28px)',
                     transition: `all 0.65s ${i * 0.12}s cubic-bezier(.22,.68,0,1.2)`,
                 }}>
                     <div style={{
@@ -2624,7 +2722,7 @@
                             {/* Heading */}
                             <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
                                 <div style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--pink-deep)', marginBottom: 12 }}>Personalized just for you</div>
-                                <h2 style={{ fontFamily: "'Great Vibes',cursive", fontSize: 52, color: 'var(--text-dark)', marginBottom: 10 }}>Handcrafted with Love 💖</h2>
+                                <h2 style={{ fontFamily: "'Great Vibes',cursive", fontSize: 52, color: 'var(--text-dark)', marginBottom: 10 }}>Handcrafted with Love ❤️✨</h2>
                                 <div style={{ width: 60, height: 1.5, margin: '0 auto', background: 'linear-gradient(90deg,transparent,var(--pink-mid),transparent)' }} />
                             </Reveal>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 32 }}>
@@ -2780,6 +2878,35 @@
                             <rect x="6" y="8" width="36" height="23" rx="2.5" />
                             <path d="M3 31h42" />
                             <path d="M17 31v4h14v-4" />
+                        </svg>
+                    )
+                },
+                {
+                    id: 'mug',
+                    tier: 'Value',
+                    name: 'Ceramic Mug',
+                    price: '₹99',
+                    badge: 'New',
+                    desc: 'High-quality 11oz ceramic mug with vibrant edge-to-edge printing.',
+                    svg: (
+                        <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6">
+                            <path d="M10 10 v28 a6 6 0 0 0 6 6 h12 a6 6 0 0 0 6 -6 v-28 h-24 z" />
+                            <path d="M34 16 c 4 0 6 2 6 6 s-2 6 -6 6" />
+                        </svg>
+                    )
+                },
+                {
+                    id: 'tote',
+                    tier: 'Value',
+                    name: 'Tote Bag',
+                    price: '₹149',
+                    badge: 'New',
+                    desc: 'Eco-friendly premium canvas bag, perfect for daily carry and style.',
+                    svg: (
+                        <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6">
+                            <rect x="10" y="14" width="28" height="30" rx="2" />
+                            <path d="M16 14 v-6 a4 4 0 0 1 8 0 v 6" />
+                            <path d="M24 14 v-6 a4 4 0 0 1 8 0 v 6" />
                         </svg>
                     )
                 }
@@ -4309,11 +4436,15 @@
                                 onThemeSelect={(theme) => {
                                     if (!user) return setAuthOpen(true);
                                     if (!user.emailVerified) return setAuthOpen(true);
-                                    setProd('phone'); setMode('easy');
-                                    // Fix: Access colors properly as THEMES uses .colors array
+                                    
+                                    // If the theme comes from SCROLL_THEMES or THEMES, it might not have productDesigns
+                                    // Default to phone and use accent/colors
+                                    setProd('phone'); 
+                                    setMode('easy');
+                                    
                                     updateDesign({ 
                                         themeId: theme.id, 
-                                        bgColor: theme.colors ? theme.colors[0] : '#F8C8DC',
+                                        bgColor: theme.colors ? theme.colors[0] : (theme.accent || '#F8C8DC'),
                                         pattern: 'none'
                                     });
                                     setPage('preview');
@@ -4353,12 +4484,13 @@
                             {page === 'themes' && (
                                 <ThemesPage 
                                     onSelectTheme={theme => { 
-                                        setProd('phone'); 
+                                        setProd(theme.selectedProduct || 'phone'); 
                                         setMode('easy'); 
-                                        // Fix: Access selectedDesign properties correctly
+                                        
                                         updateDesign({ 
                                             themeId: theme.id, 
-                                            bgColor: theme.selectedDesign ? theme.selectedDesign.color : (theme.colors ? theme.colors[0] : '#F8C8DC'),
+                                            designId: theme.selectedDesign ? theme.selectedDesign.id : null,
+                                            bgColor: theme.selectedDesign ? theme.selectedDesign.color : (theme.accent || '#F8C8DC'),
                                             img: theme.selectedDesign ? theme.selectedDesign.img : '',
                                             pattern: 'none'
                                         }); 
