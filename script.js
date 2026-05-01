@@ -41,9 +41,7 @@
             tiers: {
                 phone: { elite: 299, standard: 249, value: 199 },
                 laptop: { elite: 449, standard: 349, value: 299 },
-                earbuds: { elite: 199, standard: 159, value: 129 },
-                mug: { elite: 149, standard: 129, value: 99 },
-                tote: { elite: 249, standard: 199, value: 149 }
+                earbuds: { elite: 199, standard: 159, value: 129 }
             },
             costs: {
                 product: 80,
@@ -179,9 +177,7 @@
         const PRODUCTS = [
             { id: 'laptop', name: 'LAPTOP CASE', icon: 'laptop', price: 299 },
             { id: 'phone', name: 'PHONE COVER', icon: 'phone', price: 199 },
-            { id: 'earbuds', name: 'EARBUDS CASE', icon: 'earbuds', price: 129 },
-            { id: 'mug', name: 'CERAMIC MUG', icon: 'mug', price: 99 },
-            { id: 'tote', name: 'TOTE BAG', icon: 'tote', price: 149 }
+            { id: 'earbuds', name: 'EARBUDS CASE', icon: 'earbuds', price: 129 }
         ];
 
         const DEVICE_MODELS = {
@@ -216,14 +212,6 @@
                 { id: 'nothing-ear-3', name: 'Nothing Ear (3)', brand: 'Nothing' },
                 { id: 'pixel-buds-pro-2', name: 'Pixel Buds Pro 2', brand: 'Google' }
             ],
-            mug: [
-                { id: 'classic-mug', name: 'Classic Ceramic Mug', brand: 'Generic' },
-                { id: 'travel-mug', name: 'Travel Steel Mug', brand: 'Generic' }
-            ],
-            tote: [
-                { id: 'canvas-tote', name: 'Premium Canvas Tote', brand: 'Generic' },
-                { id: 'eco-tote', name: 'Eco-Friendly Cotton Bag', brand: 'Generic' }
-            ]
         };
         const THEMES = [
             { id: 'anime', name: 'Anime', icon: '/images/quiet_sunset_anime.png', colors: ['#FF6B6B', '#4ECDC4', '#FFE66D'], tag: 'Fan Favourites', mood: 'Bold & Expressive' },
@@ -232,7 +220,7 @@
             { id: 'mandala', name: 'Mandala', icon: '/images/theme_mandala_new.webp', colors: ['#606C38', '#283618', '#FEFAE0'], tag: 'Sacred Geometry', mood: 'Calm & Intricate' },
             { id: 'floral', name: 'Floral', icon: '/images/theme_floral_new.jpg', colors: ['#FFC8DD', '#FFAFCC', '#BDE0FE'], tag: 'Nature in Bloom', mood: 'Soft & Romantic' },
             { id: 'disney', name: 'Disney', icon: '/images/theme_disney_new.jpg', colors: ['#B7094C', '#A01A58', '#892B64'], tag: 'Magic Collection', mood: 'Enchanting & Pure' },
-            { id: 'vintage', name: 'Vintage', icon: '/images/theme_vintage.png', colors: ['#D4A373', '#FAEDCD', '#CCD5AE'], tag: 'Retro Classic', mood: 'Nostalgic & Timeless' }
+
         ];
         const BASE_STYLES = [
             { id: 'matte', name: 'Matte Finish', icon: '/images/icon_pro.png' },
@@ -665,9 +653,9 @@
             // Detect mobile to reduce GPU-intensive effects
             const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
-            const w = product === 'phone' ? size * 0.75 : product === 'earbuds' ? size * 0.95 : product === 'mug' ? size * 1.1 : product === 'tote' ? size * 1.3 : size * 1.4;
-            const h = product === 'phone' ? size * 1.5 : product === 'earbuds' ? size * 1.1 : product === 'mug' ? size * 1.2 : product === 'tote' ? size * 1.4 : size * 0.95;
-            const r = product === 'phone' ? (size * 0.1) : product === 'earbuds' ? (size * 0.22) : product === 'mug' ? (size * 0.15) : product === 'tote' ? (size * 0.05) : (size * 0.06);
+            const w = product === 'phone' ? size * 0.75 : product === 'earbuds' ? size * 0.95 : size * 1.4;
+            const h = product === 'phone' ? size * 1.5 : product === 'earbuds' ? size * 1.1 : size * 0.95;
+            const r = product === 'phone' ? (size * 0.1) : product === 'earbuds' ? (size * 0.22) : (size * 0.06);
             const pattern = design.pattern || 'none';
             const effect = design.effect || 'none';
             const safeBg = design.bgColor || '#F8C8DC';
@@ -989,17 +977,7 @@
                             </div>
                         )}
                         
-                        {!isEasyMode && product === 'mug' && (
-                            <div style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }}>
-                                <img src="/images/product_mug.png" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.85 }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
-                            </div>
-                        )}
-                        
-                        {!isEasyMode && product === 'tote' && (
-                            <div style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }}>
-                                <img src="/images/product_tote.png" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.8 }}  onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} />
-                            </div>
-                        )}
+
                     </div>
                 </div>
             );
@@ -1199,40 +1177,7 @@
                     ]
                 }
             },
-            {
-                id: 'vintage', name: 'Vintage', emoji: '/images/theme_vintage.png',
-                tag: 'Retro Classic', mood: 'Nostalgic & Timeless',
-                accent: '#D4A373', accent2: '#FAEDCD',
-                img: '/images/theme_vintage.png',
-                config: {
-                    colors: ['#D4A373', '#FAEDCD', '#CCD5AE', '#E9EDC9', '#FEFAE0'],
-                    fonts: ['Cinzel', 'Special Elite', 'Dancing Script'],
-                    patterns: ['none', 'noise', 'wood'],
-                    effects: ['none', 'satin-gloss', 'frost-glass']
-                },
-                productDesigns: {
-                    phone: [
-                        { id: 'v_p1', name: 'Retro Soul', sub: '70s Geometric', img: '/images/vintage_phone.png' },
-                        { id: 'v_p2', name: 'Classic Radio', sub: 'Analog Vibes', img: '/images/vintage_phone.png' },
-                    ],
-                    earbuds: [
-                        { id: 'v_e1', name: 'Vinyl Records', sub: 'Music History', img: '/images/vintage_earbuds.png' },
-                        { id: 'v_e2', name: 'Retro Dial', sub: 'Classic Tech', img: '/images/vintage_earbuds.png' },
-                    ],
-                    laptop: [
-                        { id: 'v_l1', name: 'Antique Map', sub: 'World Explorer', img: '/images/vintage_laptop.png' },
-                        { id: 'v_l2', name: 'Old Library', sub: 'Literary Classic', img: '/images/vintage_laptop.png' },
-                    ],
-                    mug: [
-                        { id: 'v_m1', name: 'Botanical Fern', sub: 'Nature Study', img: '/images/vintage_mug.png' },
-                        { id: 'v_m2', name: 'French Cafe', sub: 'Morning Ritual', img: '/images/vintage_mug.png' },
-                    ],
-                    tote: [
-                        { id: 'v_t1', name: 'Parisian Market', sub: 'Vintage Style', img: '/images/vintage_tote.png' },
-                        { id: 'v_t2', name: 'Linen Texture', sub: 'Natural Carry', img: '/images/vintage_tote.png' },
-                    ]
-                }
-            },
+
         ];
 
         /* ——— IMAGE DESIGN CARD ——— */
@@ -1284,7 +1229,7 @@
                                 alt={design.name}
                                 onError={() => setImgErr(true)}
                                 style={{
-                                    width: '100%', height: '100%', objectFit: 'contain',
+                                    width: '100%', height: '100%', objectFit: 'cover',
                                     display: 'block',
                                     transform: hov ? 'scale(1.08)' : 'scale(1)',
                                     transition: 'transform 0.5s cubic-bezier(.22,.68,0,1.2)',
@@ -1387,7 +1332,7 @@
                                 alt={theme.name}
                                 onError={() => setImgErr(true)}
                                 style={{
-                                    width: '100%', height: '100%', objectFit: 'contain', display: 'block',
+                                    width: '100%', height: '100%', objectFit: 'cover', display: 'block',
                                     transform: (hov || isActive) ? 'scale(1.07)' : 'scale(1)',
                                     transition: 'transform 0.5s cubic-bezier(.22,.68,0,1.2)',
                                     filter: isActive ? 'brightness(0.75)' : hov ? 'brightness(0.80)' : 'brightness(0.88)',
@@ -1570,7 +1515,7 @@
                                     fontFamily: 'Poppins,sans-serif', fontSize: 14, color: 'var(--text-mid)',
                                     fontWeight: 300, maxWidth: 460, margin: '0 auto', lineHeight: 1.8,
                                 }}>
-                                    7 handcrafted theme collections — each with unique design styles. Click a theme to explore its designs.
+                                    6 handcrafted theme collections — each with unique design styles. Click a theme to explore its designs.
                                 </p>
                             </Reveal>
                         </div>
@@ -2189,7 +2134,7 @@
             { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', img: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
             { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', img: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: '/images/icon_designs.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: '/images/icon_designs.png' }] },
             { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', img: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: '/images/icon_designs.png' }, { name: 'Stardust', color: '#FFD700', icon: '/images/icon_designs.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: '/images/icon_designs.png' }] },
-            { id: 'vintage', name: 'Vintage', emoji: '/images/theme_vintage.png', img: '/images/theme_vintage.png', tag: 'Retro Classic', desc: 'Nostalgic vibes for the modern world. Classic aesthetics, timeless patterns, forever in style.', accent: '#D4A373', accent2: '#FAEDCD', bg: 'linear-gradient(135deg,#FDF5E6,#FFF8DC)', designs: [{ name: 'Retro Soul', color: '#D4A373', icon: '/images/icon_designs.png' }, { name: 'Vinyl Beat', color: '#8B4513', icon: '/images/icon_designs.png' }, { name: 'Old Library', color: '#6B4226', icon: '/images/icon_designs.png' }] },
+
         ];
 
         function DesignMiniCard({ d, index, onClick }) {
@@ -2881,35 +2826,7 @@
                         </svg>
                     )
                 },
-                {
-                    id: 'mug',
-                    tier: 'Value',
-                    name: 'Ceramic Mug',
-                    price: '₹99',
-                    badge: 'New',
-                    desc: 'High-quality 11oz ceramic mug with vibrant edge-to-edge printing.',
-                    svg: (
-                        <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6">
-                            <path d="M10 10 v28 a6 6 0 0 0 6 6 h12 a6 6 0 0 0 6 -6 v-28 h-24 z" />
-                            <path d="M34 16 c 4 0 6 2 6 6 s-2 6 -6 6" />
-                        </svg>
-                    )
-                },
-                {
-                    id: 'tote',
-                    tier: 'Value',
-                    name: 'Tote Bag',
-                    price: '₹149',
-                    badge: 'New',
-                    desc: 'Eco-friendly premium canvas bag, perfect for daily carry and style.',
-                    svg: (
-                        <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.6">
-                            <rect x="10" y="14" width="28" height="30" rx="2" />
-                            <path d="M16 14 v-6 a4 4 0 0 1 8 0 v 6" />
-                            <path d="M24 14 v-6 a4 4 0 0 1 8 0 v 6" />
-                        </svg>
-                    )
-                }
+
             ];
 
             return (
