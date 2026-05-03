@@ -2128,9 +2128,9 @@
         /* — HOMEPAGE — */
         /* — SCROLL THEMES DATA — */
         const SCROLL_THEMES = [
-            { id: 'anime', name: 'Anime', emoji: 'ChatGPT Image May 2, 2026, 09_15_16 PM.png', img: 'ChatGPT Image May 2, 2026, 09_15_16 PM.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: 'ChatGPT Image May 2, 2026, 09_15_16 PM.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: 'ChatGPT Image May 2, 2026, 09_15_16 PM.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: 'ChatGPT Image May 2, 2026, 09_15_16 PM.png' }] },
-            { id: 'marvel', name: 'Marvel', emoji: 'images/theme_marvel_new.jpg', img: 'images/theme_marvel_new.jpg', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: 'images/theme_marvel_new.jpg' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: 'images/theme_marvel_new.jpg' }, { name: 'Golden Om', color: '#F0D98A', icon: 'images/theme_marvel_new.jpg' }] },
-            { id: 'cars', name: 'Cars', emoji: 'theme_cars_new.png', img: 'theme_cars_new.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: 'theme_cars_new.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: 'theme_cars_new.png' }, { name: 'Golden Speed', color: '#FFE082', icon: 'theme_cars_new.png' }] },
+            { id: 'anime', name: 'Anime', emoji: '/images/ChatGPT Image May 2, 2026, 09_15_16 PM.png', img: '/images/ChatGPT Image May 2, 2026, 09_15_16 PM.png', tag: 'Fan Favourites', desc: 'Bring your favourite characters to life. From Naruto to Demon Slayer — wear your fandom with pride.', accent: '#F8C8DC', accent2: '#E6E6FA', bg: 'linear-gradient(135deg,#FFF0F5,#E6E6FA)', designs: [{ name: 'Sakura Vibes', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Thunder Storm', color: '#E6E6FA', icon: '/images/icon_designs.png' }, { name: 'Night Slash', color: '#C9B8E8', icon: '/images/icon_designs.png' }] },
+            { id: 'marvel', name: 'Marvel', emoji: '/images/theme_marvel_new.jpg', img: '/images/theme_marvel_new.jpg', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
+            { id: 'cars', name: 'Cars', emoji: '/images/theme_cars.png', img: '/images/theme_cars.png', tag: 'Speed & Style', desc: 'For those who live life in the fast lane. Sleek, bold, built for the road.', accent: '#FFE082', accent2: '#B2EBF2', bg: 'linear-gradient(135deg,#FFFFF0,#E0F7FA)', designs: [{ name: 'Midnight Race', color: '#2C2C4A', icon: '/images/icon_designs.png' }, { name: 'Chrome Dream', color: '#B2EBF2', icon: '/images/icon_designs.png' }, { name: 'Golden Speed', color: '#FFE082', icon: '/images/icon_designs.png' }] },
             { id: 'mandala', name: 'Mandala', emoji: '/images/theme_mandala_new.webp', img: '/images/theme_mandala_new.webp', tag: 'Sacred Geometry', desc: 'Find your centre. Intricate patterns that radiate calm, balance and sacred beauty.', accent: '#C9B8E8', accent2: '#F8C8DC', bg: 'linear-gradient(135deg,#F3E8FF,#FFF0F5)', designs: [{ name: 'Violet Lotus', color: '#C9B8E8', icon: '/images/icon_designs.png' }, { name: 'Rose Mandala', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Golden Om', color: '#F0D98A', icon: '/images/icon_designs.png' }] },
             { id: 'floral', name: 'Floral', emoji: '/images/theme_floral_new.jpg', img: '/images/theme_floral_new.jpg', tag: 'Nature in Bloom', desc: 'Let nature decorate your world. Delicate petals, soft palettes — timeless and alive.', accent: '#F8C8DC', accent2: '#A8D5A2', bg: 'linear-gradient(135deg,#FFF0F5,#F0FFF0)', designs: [{ name: 'Petal Soft', color: '#F8C8DC', icon: '/images/icon_designs.png' }, { name: 'Garden Green', color: '#A8D5A2', icon: '/images/icon_designs.png' }, { name: 'Vintage Rose', color: '#D4688E', icon: '/images/icon_designs.png' }] },
             { id: 'disney', name: 'Disney', emoji: '/images/theme_disney_new.jpg', img: '/images/theme_disney_new.jpg', tag: 'Magic Collection', desc: 'A little magic in every pocket. Iconic characters, fairytale moments, pure enchantment.', accent: '#81D8D0', accent2: '#FFD700', bg: 'linear-gradient(135deg,#E0FFFF,#FFFACD)', designs: [{ name: 'Castle Glow', color: '#81D8D0', icon: '/images/icon_designs.png' }, { name: 'Stardust', color: '#FFD700', icon: '/images/icon_designs.png' }, { name: 'Rose Fairy', color: '#F8C8DC', icon: '/images/icon_designs.png' }] },
@@ -3853,7 +3853,7 @@
 
                                 <button className="btn btn-primary btn-full shadow-glow"
                                     style={{ padding: '24px', fontSize: 16, borderRadius: 20, background: 'linear-gradient(135deg, var(--text-dark), #000)' }}
-                                    onClick={() => onAddToCart(total)}>
+                                    onClick={() => addToCart(total)}>
                                     ADD TO CART — ₹{total}
                                 </button>
 
@@ -3917,8 +3917,12 @@
                                 </div>
                             ) : cart.map((item, i) => (
                                 <div className="cart-item" key={i}>
-                                    <div className="cart-item-thumb" style={{ background: item.bg || 'var(--beige-soft)' }}>
-                                        <img loading="lazy" src={item.productIcon} onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
+                                    <div className="cart-item-thumb" style={{ background: item.bg || 'var(--beige-soft)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        {item.productIcon && item.productIcon.startsWith('data:') ? (
+                                            <img loading="lazy" src={item.productIcon} alt="design" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '8px' }} />
+                                        ) : (
+                                            <img loading="lazy" src={item.productIcon} onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
+                                        )}
                                     </div>
                                     <div className="cart-item-info">
                                         <div className="cart-item-name">{item.productName}</div>
@@ -4095,8 +4099,12 @@
                                 <div style={{ display: 'grid', gap: 20, maxHeight: 300, overflowY: 'auto', paddingRight: 10, marginBottom: 24 }}>
                                     {cart.map((item, i) => (
                                         <div key={i} style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-                                            <div style={{ width: 64, height: 64, background: item.bg || '#eee', borderRadius: 12, overflow: 'hidden' }}>
-                                                <img loading="lazy" src={item.productIcon} onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                            <div style={{ width: 64, height: 64, background: item.bg || '#eee', borderRadius: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                {item.productIcon && item.productIcon.startsWith('data:') ? (
+                                                    <img loading="lazy" src={item.productIcon} alt="design" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '4px' }} />
+                                                ) : (
+                                                    <img loading="lazy" src={item.productIcon} onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMG; }} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                )}
                                             </div>
                                             <div style={{ flex: 1 }}>
                                                 <div style={{ fontSize: 14, fontWeight: 700 }}>{item.productName}</div>
@@ -4247,7 +4255,7 @@
 
             const showToast = (msg) => setToast(msg);
 
-            const addToCart = (customPrice) => {
+            const addToCart = async (customPrice) => {
                 const prod = PRODUCTS.find(p => p.id === product);
                 const theme = design.themeId ? THEMES.find(t => t.id === design.themeId) : null;
                 const finalPrice = customPrice || prod.price;
@@ -4256,13 +4264,36 @@
                     ? `(${design.manualModel || 'Custom'})` 
                     : `(${selectedModel?.name || 'Standard'})`;
 
+                let previewImage = `/images/product_${prod.id}.png`;
+                
+                // Capture the design preview as image
+                try {
+                    if (document.querySelector('.preview-canvas')) {
+                        const previewElement = document.querySelector('.preview-canvas');
+                        const canvas = await html2canvas(previewElement, {
+                            backgroundColor: null,
+                            scale: 1.5,
+                            logging: false,
+                            useCORS: true
+                        });
+                        previewImage = canvas.toDataURL('image/png');
+                    }
+                } catch (err) {
+                    console.warn('Could not capture preview image:', err);
+                    previewImage = mode === 'easy' && theme?.icon ? theme.icon : `/images/product_${prod.id}.png`;
+                }
+
                 setCart(c => [...c, { 
                     productName: prod.name, 
                     themeName: theme?.name || 'Custom Blossom Design',
                     detail: detailStr, 
                     price: finalPrice, 
-                    productIcon: mode === 'easy' && theme?.icon ? theme.icon : `/images/product_${prod.id}.png`,
-                    bg: theme?.bg || design.bgColor 
+                    productIcon: previewImage,
+                    bg: design.bgColor,
+                    product: product,
+                    mode: mode,
+                    design: design,
+                    selectedModel: selectedModel
                 }]);
                 showToast('Added to cart! 🎉');
                 setPetals(true);
